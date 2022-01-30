@@ -95,11 +95,11 @@ const ProductListScreen = ({ history, match }) => {
         {/* Card starts */}
 
         <Card border="success" style={{ width: '18rem' }}>
-    <Card.Header>Total Active Users</Card.Header>
+    <Card.Header>Products</Card.Header>
     <Card.Body>
       <Card.Title>{products.length}</Card.Title>
       <Card.Text>
-        Total Active Users Including Admins.
+        Total Products
       </Card.Text>
     </Card.Body>
   </Card>

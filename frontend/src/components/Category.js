@@ -33,7 +33,7 @@ function Category({history}) {
       </Form.Control>
       
       <Button type='submit' className='p-2 search__button'>
-        Search by Categories
+        Categories
       </Button>
     </Form>
         </div>

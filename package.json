@@ -17,17 +17,20 @@
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "chart.js": "^3.7.0",
     "colors": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",
+    "faker": "^6.6.6",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.6",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
     "razorpay": "^2.0.6",
-    "react-animate-on-scroll": "^2.1.5"
+    "react-animate-on-scroll": "^2.1.5",
+    "react-chartjs-2": "^4.0.1"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",

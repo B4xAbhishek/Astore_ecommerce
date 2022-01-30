@@ -4,6 +4,7 @@ import { Table, Button, Card, CardGroup } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
+import Modals from '../components/Modals'
 import { listOrders } from '../actions/orderActions'
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 
@@ -25,7 +26,6 @@ const OrderListScreen = ({ history }) => {
     }
   }, [dispatch, history, userInfo])
 
-  let amountEarned = 0
 
   return (
     <>
@@ -44,8 +44,7 @@ const OrderListScreen = ({ history }) => {
                   <Card.Text>
                   <ReactHTMLTableToExcel
                     id="test-table-xls-button"
-                    className="download-table-xls-button p-2 success"
-                    variant="success"
+                    className="download-table-xls-button p-2 btn btn-primary"
                     table="table-to-xls"
                     filename="Orderxls"
                     sheet="tablexls"
@@ -60,6 +59,7 @@ const OrderListScreen = ({ history }) => {
                   <Card.Title>{orders.length}</Card.Title>
                   <Card.Text>
                    <p>total Amount Earned ₹2074.17</p>
+                   <Modals/>
                   </Card.Text>
                 </Card.Body>
               </Card>
