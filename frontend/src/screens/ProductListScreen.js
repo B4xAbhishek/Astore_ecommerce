@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Table, Button, Row, Col } from 'react-bootstrap'
+import { Table, Button, Row, Col, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -92,6 +92,20 @@ const ProductListScreen = ({ history, match }) => {
         <Message variant='danger'>{error}</Message>
       ) : (
         <>
+        {/* Card starts */}
+
+        <Card border="success" style={{ width: '18rem' }}>
+    <Card.Header>Total Active Users</Card.Header>
+    <Card.Body>
+      <Card.Title>{products.length}</Card.Title>
+      <Card.Text>
+        Total Active Users Including Admins.
+      </Card.Text>
+    </Card.Body>
+  </Card>
+  <br />
+
+  {/* Cards End */}
           <Table striped bordered hover responsive className='table-sm'>
             <thead>
               <tr>

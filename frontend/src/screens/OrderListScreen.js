@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Table, Button } from 'react-bootstrap'
+import { Table, Button, Card, CardGroup } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -25,6 +25,8 @@ const OrderListScreen = ({ history }) => {
     }
   }, [dispatch, history, userInfo])
 
+  let amountEarned = 0
+
   return (
     <>
       <h1>Orders</h1>
@@ -34,13 +36,36 @@ const OrderListScreen = ({ history }) => {
         <Message variant='danger'>{error}</Message>
       ) : (
         <>
-        <ReactHTMLTableToExcel
+        <CardGroup>
+                <Card border="info" style={{ width: '18rem' }} >
+                <Card.Header>Total Orders Placed</Card.Header>
+                <Card.Body>
+                  <Card.Title>{orders.length}</Card.Title>
+                  <Card.Text>
+                  <ReactHTMLTableToExcel
                     id="test-table-xls-button"
-                    className="download-table-xls-button"
+                    className="download-table-xls-button p-2 success"
+                    variant="success"
                     table="table-to-xls"
                     filename="Orderxls"
                     sheet="tablexls"
-                    buttonText="Export on Excel"/>
+                    buttonText="Export to Excel"/>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+  <br />
+  <Card border="success" style={{ width: '18rem' }} >
+                <Card.Header>Total Paid Orders</Card.Header>
+                <Card.Body>
+                  <Card.Title>{orders.length}</Card.Title>
+                  <Card.Text>
+                   <p>total Amount Earned ₹2074.17</p>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+              </CardGroup>
+  {/* Cards End */}
+
         <Table striped bordered hover responsive className='table-sm' id="table-to-xls">
           <thead>
             <tr>

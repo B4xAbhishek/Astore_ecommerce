@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Table, Button } from 'react-bootstrap'
+import { Table, Button, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -41,6 +41,18 @@ const UserListScreen = ({ history }) => {
         <Message variant='danger'>{error}</Message>
       ) : (
         <>
+        {/* Card Starts */}
+          <Card border="danger" style={{ width: '18rem' }} >
+                <Card.Header>Total Users </Card.Header>
+                <Card.Body>
+                  <Card.Title>{users.length}</Card.Title>
+                  <Card.Text>
+                   <p>total Active users </p>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+              <br></br>
+              {/* Card Ends */}
         <Table striped bordered hover responsive className='table-sm'>
           <thead>
             <tr>
