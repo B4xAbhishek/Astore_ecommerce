@@ -1,0 +1,26 @@
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+.product {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.h1__underline {
+  display: inline-block;
+  width: 51px;
+  height: 2px;
+  background: #333;
+  margin-top: -1px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
