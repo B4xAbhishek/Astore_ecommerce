@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col, Image, ListGroup, Card, Button, Form} from 'react-bootstrap'
+import { Row, Col, Image, ListGroup, Card, Button, Form, Overlay} from 'react-bootstrap'
 import Rating from '../components/Rating'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -15,6 +15,8 @@ import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
 
 const ProductScreen = ({ history, match }) => {
 
+  const [show, setShow] = useState(false);
+  const target = useRef(null);
   const [qty, setQty] = useState(1)
   const [rating, setRating] = useState(0)
   const [comment, setComment] = useState('')
@@ -64,6 +66,15 @@ const ProductScreen = ({ history, match }) => {
   return (
     <>
       <Link className="btn btn-light my-3" to="/">
+      <Overlay target={target.current} show={show} placement="right">
+        {({ placement, arrowProps, show: _show, popper, ...props }) => (
+          <div
+            {...props}
+          >
+             <Image src={product.image} alt={product.name} fluid />
+          </div>
+        )}
+      </Overlay>
         Go Back
       </Link>
       {loading ? (
@@ -75,8 +86,19 @@ const ProductScreen = ({ history, match }) => {
           <Meta title={product.name} />
           <Row>
             <Col md={6}>
+            <Button 
+            style={{
+              backgroundColor: 'white',
+              cursor: 'zoom-in',
+              color: 'white',
+              borderRadius: 3,
+              borderColor: 'white'
+            }}
+            ref={target} onClick={() => setShow(!show)}>
               <Image src={product.image} alt={product.name} fluid />
+             </Button>
             </Col>
+           
             <Col md={3}>
               <ListGroup variant="flush">
                 <ListGroup.Item>
@@ -90,6 +112,7 @@ const ProductScreen = ({ history, match }) => {
                 <ListGroup.Item>Price: ₹{product.price}</ListGroup.Item>
 
                 <ListGroup.Item>Category: {product.category}</ListGroup.Item>
+                <ListGroup.Item>Product Id: {match.params.id}</ListGroup.Item>
 
                 <ListGroup.Item>
                   <Rating
@@ -123,14 +146,18 @@ const ProductScreen = ({ history, match }) => {
 
                   <ListGroup.Item>
                     <Row>  
-                      <Col>Remarks:</Col>
+                      <Col>Size:</Col>
                       <Col>
                       <Form.Control
-                            as='input'
+                            as='select'
                             value={remarks}
-                            placeholder = 'Measurement'
+                            label="Size (Euro)"
                             onChange={(e) => setRemarks(e.target.value)}
                           >
+                            <option default>41</option>
+                            <option>42</option>
+                            <option>43</option>
+                            <option>44</option>
                             </Form.Control>
                       </Col>
                     </Row>
@@ -154,7 +181,7 @@ const ProductScreen = ({ history, match }) => {
                     </Row>
                   </ListGroup.Item>
 
-                  {/* {product.countInStock > 0 && (
+                  {product.countInStock > 0 && (
                     <ListGroup.Item>
                       <Row>
                         <Col>Qty</Col>
@@ -175,7 +202,7 @@ const ProductScreen = ({ history, match }) => {
                         </Col>
                       </Row>
                     </ListGroup.Item>
-                  )} */}
+                  )}
                   <ListGroup.Item>
                     <Button
                       onClick={addToCartHandler}

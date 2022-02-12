@@ -109,7 +109,7 @@ const PlaceOrderScreen = ({ history }) => {
                         </Col>
 
                         <Col md={4}>
-                          <p>Remarks:{item.remarks}</p>
+                          <p>Size:{item.remarks}</p>
 
                           {item.gift === ""? "" :
                           <p>Gift:{item.gift}</p>

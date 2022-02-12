@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Image } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -127,7 +127,7 @@ const ProductEditScreen = ({ match, history }) => {
             </Form.Group>
 
             <Form.Group controlId='image'>
-              <Form.Label>Image</Form.Label>
+              <Form.Label>Image </Form.Label>
               <Form.Control
                 type='text'
                 placeholder='Enter image url'
@@ -142,7 +142,8 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.File>
               {uploading && <Loader />}
             </Form.Group>
-
+            <Form.Label>Preview - </Form.Label>
+          <Image src={image} alt="preview" roundedCircle height="150" width="150"/>
             <Form.Group controlId='brand'>
               <Form.Label>Brand</Form.Label>
               <Form.Control

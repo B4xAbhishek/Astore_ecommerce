@@ -68,7 +68,7 @@ const Footer = () => {
     
     <div class="row text-center">
       <div class="col-md-4 box">
-        <span class="copyright quick-links">Copyright &copy; Your Website <script>document.write(new Date().getFullYear())</script>
+        <span class="copyright quick-links">Copyright &copy; The Astore <script>document.write(new Date().getFullYear())</script>
         </span>
       </div>
       <div class="col-md-4 box">

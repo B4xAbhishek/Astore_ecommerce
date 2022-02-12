@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useState,useEffect } from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Table, Button, Row, Col, Card } from 'react-bootstrap'
+import { Table, Button, Row, Col, Card, Badge, Toast } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -38,6 +38,8 @@ const ProductListScreen = ({ history, match }) => {
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
+  const [highlight, sethighlight] = useState('')
+
   useEffect(() => {
     dispatch({ type: PRODUCT_CREATE_RESET })
 
@@ -70,6 +72,11 @@ const ProductListScreen = ({ history, match }) => {
     dispatch(createProduct())
   }
 
+  const handlehighlight = (event) => {
+    sethighlight(event.target.value)
+
+  }
+  
   return (
     <>
       <Row className='align-items-center'>
@@ -105,6 +112,10 @@ const ProductListScreen = ({ history, match }) => {
   </Card>
   <br />
 
+  <label htmlFor="Highlight">
+        Highlight by Id:
+        <input id="Highlight" type="text" onChange={handlehighlight} />
+      </label>
   {/* Cards End */}
           <Table striped bordered hover responsive className='table-sm'>
             <thead>
@@ -139,6 +150,8 @@ const ProductListScreen = ({ history, match }) => {
                       <i className='fas fa-trash'></i>
                     </Button>
                   </td>
+                  <td>{product._id == highlight ? <Badge bg="primary"> 
+                  Highlighted</Badge> : <p></p>}</td>
                 </tr>
               )).reverse()}
             </tbody>

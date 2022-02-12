@@ -26,7 +26,7 @@ const Header = () => {
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <LinkContainer to='/'>
             <Navbar.Brand>
-               React Store
+               The Astore
               </Navbar.Brand>
           </LinkContainer>
           {/* <Navbar.Toggle aria-controls='basic-navbar-nav' /> */}
