@@ -40,7 +40,7 @@ function ProductCarousel() {
       className="carousel__item">
         <img
           className="carousel__img"
-          src="/images/sneaker3.jpg"
+          src="/images/third.jpg"
           alt="Third slide"
         />
       </Carousel.Item>
