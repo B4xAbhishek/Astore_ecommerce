@@ -24,7 +24,7 @@ function ProductCarousel() {
       className="carousel__item">
         <img
           className="carousel__img"
-          src="/images/sneaker1.jpg"
+          src="https://ibb.co/X4zdCfN"
           alt="First slide"
         />
       </Carousel.Item>
