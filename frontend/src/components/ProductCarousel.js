@@ -24,7 +24,7 @@ function ProductCarousel() {
       className="carousel__item">
         <img
           className="carousel__img"
-          src="https://ibb.co/X4zdCfN"
+          src="/images/first.jpg"
           alt="First slide"
         />
       </Carousel.Item>
@@ -32,7 +32,7 @@ function ProductCarousel() {
       className="carousel__item">
         <img
           className="carousel__img"
-          src="/images/sneaker2.jpg"
+          src="/images/second.jpg"
           alt="Third slide"
         />
       </Carousel.Item>
@@ -42,14 +42,6 @@ function ProductCarousel() {
           className="carousel__img"
           src="/images/third.jpg"
           alt="Third slide"
-        />
-      </Carousel.Item>
-      <Carousel.Item interval={1000}
-      className="carousel__item">
-        <img
-          className="carousel__img"
-          src="/images/sneaker4.jpg"
-          alt="Fourth slide"
         />
       </Carousel.Item>
     </Carousel>
