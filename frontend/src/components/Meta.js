@@ -12,7 +12,7 @@ const Meta = ({ title, description, keywords }) => {
 }
 
 Meta.defaultProps = {
-  title: 'Welcome To React Store',
+  title: 'Welcome To Astore',
   description: 'A Clothing online store',
   keywords: 'Tickly tots, Tickly tots website,Tickly tots kids clothing',
 }

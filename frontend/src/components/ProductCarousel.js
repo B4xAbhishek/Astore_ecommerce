@@ -33,7 +33,7 @@ function ProductCarousel() {
         <img
           className="carousel__img"
           src="/images/second.jpg"
-          alt="Third slide"
+          alt="second slide"
         />
       </Carousel.Item>
       <Carousel.Item interval={1000}
